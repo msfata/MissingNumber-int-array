@@ -1,0 +1,16 @@
+public class MissingOneNumber{
+/*
+ * this method will only find a single missing number*/
+	public static void main(String[] args) {
+		System.out.println("Missing Number : " + getMissingNumbers(new int[] { 1, 3 }));
+	}
+
+	public static int getMissingNumbers(int... input) {
+		int n = input.length + 1;
+		int sum = (n * (n + 1)) / 2;
+		for (int i = 0; i < input.length; i++) {
+			sum = sum - input[i];
+		}
+		return sum;
+	}
+}
