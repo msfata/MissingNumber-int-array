@@ -6,11 +6,18 @@ public class MissingOneNumber{
 	}
 
 	public static int getMissingNumbers(int... input) {
-		int n = input.length + 1;
-		int sum = (n * (n + 1)) / 2;
-		for (int i = 0; i < input.length; i++) {
-			sum = sum - input[i];
+		Arrays.sort(input);
+		int temp = 0;
+		int start = input[0];
+		int end = input[input.length - 1];
+		for (int i = start; i <= end; i++) {
+			temp += i;
 		}
-		return sum;
+
+		for (int i = 0; i < input.length; i++) {
+			temp = temp - input[i];
+		}
+
+		return temp;
 	}
 }
